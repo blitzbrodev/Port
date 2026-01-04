@@ -31,32 +31,50 @@ body {
 }
 
 .projects {
+  min-height: 100vh;
+  padding: 120px 8%;
+  background: linear-gradient(to bottom, #070707, #000);
+}
+
+.projects-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 80px;
+}
+
+.card-stage {
   display: flex;
-  gap: 60px;
-  padding: 100px 10%;
-  perspective: 1400px;
+  gap: 80px;
+  justify-content: center;
+  perspective: 1600px;
 }
 
 .card {
-  width: 260px;
-  height: 340px;
-  background: linear-gradient(160deg, #1a1a1a, #0d0d0d);
-  border-radius: 20px;
+  width: 300px;
+  height: 380px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(0,0,0,0.6)),
+    radial-gradient(circle at top, #1a1a1a, #050505);
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   transform-style: preserve-3d;
   transition: box-shadow 0.4s;
+  cursor: pointer;
 }
 
-.card h3 {
+.card span {
+  font-size: 1.2rem;
+  font-weight: 500;
+  transform: translateZ(40px);
   pointer-events: none;
 }
 
 .card:hover {
-  box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+  box-shadow: 0 50px 120px rgba(0,0,0,0.9);
 }
+
 
 .cursor {
   width: 16px;
