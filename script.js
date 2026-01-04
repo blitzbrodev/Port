@@ -15,45 +15,39 @@ window.addEventListener("mousemove", e => {
 })
 
 cards.forEach(card => {
-  let currentX = 0
-  let currentY = 0
+  let rotX = 0
+  let rotY = 0
+  let targetX = 0
+  let targetY = 0
 
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect()
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
 
-    const centerX = rect.width / 2
-    const centerY = rect.height / 2
+    const nx = (x / rect.width - 0.5) * 2
+    const ny = (y / rect.height - 0.5) * 2
 
-    const forceX = (y - centerY) / centerY
-    const forceY = (x - centerX) / centerX
-
-    currentX += forceX * 4
-    currentY += forceY * 4
-
-    card.style.transform = `
-      rotateX(${-currentX}deg)
-      rotateY(${currentY}deg)
-    `
+    targetX = ny * -12
+    targetY = nx * 12
   })
 
   card.addEventListener("mouseleave", () => {
-    currentX *= 0.6
-    currentY *= 0.6
+    targetX = 0
+    targetY = 0
+  })
+
+  function animate() {
+    rotX += (targetX - rotX) * 0.12
+    rotY += (targetY - rotY) * 0.12
+
     card.style.transform = `
-      rotateX(${currentX}deg)
-      rotateY(${currentY}deg)
+      rotateX(${rotX}deg)
+      rotateY(${rotY}deg)
     `
-  })
 
-  card.addEventListener("click", () => {
-    viewer.classList.remove("hidden")
-    viewerTitle.textContent = card.dataset.title
-    viewerDesc.textContent = card.dataset.desc
-  })
-})
+    requestAnimationFrame(animate)
+  }
 
-viewer.addEventListener("click", () => {
-  viewer.classList.add("hidden")
+  animate()
 })
