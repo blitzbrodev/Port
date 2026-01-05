@@ -3,45 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+<title>Chol0</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="cursor"></div>
+<div class="fade"></div>
 
-<section class="hero">
-  <h1>Your Name</h1>
-  <p>Interactive Systems · Game Dev · Engineering</p>
-</section>
+<section class="hero center">
+  <h1>Chol0</h1>
+  <p>Roblox Builder · Environment Design</p>
 
-<section class="projects">
-  <h2 class="projects-title">Selected Work</h2>
-
-  <div class="card-stage">
-    <div class="card" data-title="Project One" data-desc="Physics-driven UI and interaction systems.">
-      <span>Project One</span>
+  <div class="nav-cards">
+    <div class="nav-card" data-link="builds.html">
+      <span>Builds</span>
     </div>
-
-    <div class="card" data-title="Project Two" data-desc="Game systems and performance engineering.">
-      <span>Project Two</span>
-    </div>
-
-    <div class="card" data-title="Project Three" data-desc="Stylized interactive visuals.">
-      <span>Project Three</span>
+    <div class="nav-card" data-link="about.html">
+      <span>About / Contact</span>
     </div>
   </div>
 </section>
-
-
-<div class="viewer hidden">
-  <div class="viewer-card">
-    <h2 id="viewer-title"></h2>
-    <p id="viewer-desc"></p>
-  </div>
-</div>
 
 <script src="script.js"></script>
+<script src="transition.js"></script>
 </body>
 </html>
