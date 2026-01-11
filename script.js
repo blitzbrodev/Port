@@ -4,16 +4,10 @@ const tabs = document.querySelectorAll("nav li");
 const mediaFiles = [
   "building_1.png",
   "building_2.png",
-  "scripting_1.png",
-  "scripting_2.png",
-  "modeling_1.png",
-  "modeling_2.png",
-  "animating_1.mp4",
-  "animating_2.mp4",
-  "vfx_1.mp4",
-  "vfx_2.mp4",
-  "ui_1.png",
-  "ui_2.png"
+  "scripting_1.mp4",
+  "scripting_2.mp4",
+  "model_1.png",
+  "model_2.png"
 ];
 
 function getLabelFromName(name) {
@@ -37,15 +31,12 @@ function loadTab(tabName) {
     const inner = document.createElement("div");
     inner.className = "card-inner";
 
-    const isPng = file.toLowerCase().endsWith(".png");
-    const isMp4 = file.toLowerCase().endsWith(".mp4");
-
-    if (isPng) {
+    if (file.endsWith(".png")) {
       const img = document.createElement("img");
       img.src = "assets/" + file;
       img.alt = file;
       inner.appendChild(img);
-    } else if (isMp4) {
+    } else if (file.endsWith(".mp4")) {
       const video = document.createElement("video");
       video.src = "assets/" + file;
       video.autoplay = true;
